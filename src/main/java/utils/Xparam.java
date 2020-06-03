@@ -1,6 +1,6 @@
 package utils;
 
-import com.sun.istack.internal.NotNull;
+import ano.NonNull;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  * @author : XDD
  * @date : 2020-03-28 15:02
  */
-public class Xparams {
+public class Xparam {
     public static <T> List<String> check(T source) {
         Class<?> targetClass = source.getClass();
         List<String> resultList = getResultList(source);
@@ -35,7 +35,7 @@ public class Xparams {
         Class<?> targetClass = source.getClass();
         List<String> resultList = new ArrayList<>();
         for (Field field : targetClass.getDeclaredFields()) {
-            boolean annotationPresent = field.isAnnotationPresent(NotNull.class);
+            boolean annotationPresent = field.isAnnotationPresent(NonNull.class);
             if (!annotationPresent) {
                 continue;
             }
